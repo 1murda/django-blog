@@ -10,4 +10,4 @@ class HomeView(View):
     def get(self, request, *args, **kwargs):
         ctx: dict = {}
 
-        return render(request, 'index.html', ctx)
+        return render(request, 'home.html', ctx)

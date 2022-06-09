@@ -7,10 +7,12 @@ from .models import Post
 class BlogListView(View):
     
     def get(self, request, *args, **kwargs):
+        posts: list = Post.objects.all()
         ctx: dict = {
-
+            "posts": posts
         }
-        return render(request, 'blog_list.html', ctx)
+        
+        return render(request, 'blog/blog_list.html', ctx)
 
 
 class BlogCreateView(View):
@@ -19,7 +21,7 @@ class BlogCreateView(View):
         ctx: dict = {
             'form' : form
         }
-        return render(request, 'blog_create.html', ctx)
+        return render(request, 'blog/blog_create.html', ctx)
 
 
     def post(self, request, *args, **kwargs):
@@ -38,4 +40,4 @@ class BlogCreateView(View):
         ctx: dict = {
 
         }
-        return render(request, 'blog_create.html', ctx)
+        return render(request, 'blog/blog_create.html', ctx)
